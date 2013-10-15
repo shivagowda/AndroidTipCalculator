@@ -40,7 +40,7 @@
         android:layout_above="@+id/tvTip"
         android:layout_alignRight="@+id/etTotalAmount"
         android:layout_marginRight="14dp"
-        android:onClick="onClick20PercentButton"
+        android:onClick="onClick" android:tag="btn20Percent"
         android:text="@string/btn20Percent" />
 
     <Button
@@ -50,7 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/etTotalAmount"
         android:layout_centerVertical="true"
-        android:onClick="onClick10PercentButton"
+        android:onClick="onClick" android:tag="btn10Percent"
         android:text="@string/btnTenPercent" />
 
     <Button
@@ -60,7 +60,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:onClick="onClick15PercentButton"
+        android:onClick="onClick" android:tag="btn15Percent" 
         android:text="@string/btn15Percent" />
 
 </RelativeLayout>

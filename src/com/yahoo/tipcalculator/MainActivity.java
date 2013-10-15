@@ -34,7 +34,7 @@ public class MainActivity extends Activity {
 		Toast.makeText(this, "Please enter valid amount", Toast.LENGTH_SHORT).show();
 	}
 
-	
+
 	/**
 	 * Convert to 2 decimal format
 	 * @param d - input double number
@@ -44,50 +44,28 @@ public class MainActivity extends Activity {
 		DecimalFormat twoDecimalForm = new DecimalFormat("#.##");
 		return Double.valueOf(twoDecimalForm.format(d));
 	}
-	
-	/**
-	 * Calculate 10% tip and display
-	 * @param v
-	 */
-	public void onClick10PercentButton(View v) {
+
+
+	public void onClick(View v) {
+		tvTip.setText(""); // clear off
 		if(etTotalAmount.getText().toString().isEmpty()) {
 			showInvalidMsgToast();
 			return;
 		}
-
 		Double fieldValue = Double.parseDouble(etTotalAmount.getText().toString());
-		Double tip = roundTwoDecimals(fieldValue * 0.1);
-		tvTip.setText("Tip is: $" + tip.toString());
-	}
 
-	/**
-	 * Calculate 15% tip and display
-	 * @param v
-	 */
-	public void onClick15PercentButton(View v) {
-		if(etTotalAmount.getText().toString().isEmpty()) {
-			showInvalidMsgToast();
-			return;
+		String btnId = (String) v.getTag();
+		Double tip = 0.0;
+		if(btnId.equalsIgnoreCase("btn10Percent")) {
+			//calculate 10% tip
+			tip = roundTwoDecimals(fieldValue * 0.1);			
+		} else if(btnId.equalsIgnoreCase("btn15Percent")) {
+			//calculate 15% tip
+			tip = roundTwoDecimals(fieldValue * 0.15);			
+		} else if(btnId.equalsIgnoreCase("btn20Percent")) {
+			//calculate 20% tip
+			tip = roundTwoDecimals(fieldValue * 0.2);			
 		}
-
-		Double fieldValue = Double.parseDouble(etTotalAmount.getText().toString());
-		Double tip = roundTwoDecimals(fieldValue * 0.15);
-		tvTip.setText("Tip is: $" + tip.toString());
-	}
-
-
-	/**
-	 * Calculate 20% tip and display
-	 * @param v
-	 */
-	public void onClick20PercentButton(View v) {
-		if(etTotalAmount.getText().toString().isEmpty()) {
-			showInvalidMsgToast();
-			return;
-		}
-
-		Double fieldValue = Double.parseDouble(etTotalAmount.getText().toString());
-		Double tip = roundTwoDecimals(fieldValue * 0.2);
 		tvTip.setText("Tip is: $" + tip.toString());
 	}
 }
